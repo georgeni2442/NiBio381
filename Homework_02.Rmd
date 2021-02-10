@@ -2,7 +2,9 @@
 title: "Homework_02"
 author: "George Ni"
 date: "2/3/2021"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
 ---
 
 This is a test file for Homework 2 of CompBio 381. 

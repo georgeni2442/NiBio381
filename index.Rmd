@@ -3,8 +3,8 @@ title: "Initial Web Page set up"
 author: "George Ni"
 date: "2/3/2021"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ## Testing webpage functionality

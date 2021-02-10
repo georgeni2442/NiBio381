@@ -1,5 +1,5 @@
 ---
-title: "Initial Web Page set up"
+title: "Comp Bio 381"
 author: "George Ni"
 date: "2/3/2021"
 output:
@@ -7,10 +7,9 @@ output:
   pdf_document: default
 ---
 
-## Testing webpage functionality
 
 ### Homework Links
 
-#### Week 1: **Nothing due**
+### Week 1: **Nothing due**
 
 ### Week 2: [Homework 2](Homework_02.html)

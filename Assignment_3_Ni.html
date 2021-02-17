@@ -197,35 +197,27 @@ summary {
 <div id="question-1" class="section level1">
 <h1>Question 1</h1>
 <p>The primary reason for using Excel to set up data frames is that people like to have the columns aligned. However, if there are not too many columns, it may be faster to do the job in a plain text editor first and align the columns with tabs. In your text editor, type in (or copy and paste from here) the following lines of text:</p>
-<p><code>1. Reg Exp: Find:\s{3,}  Replace:,</code></p>
+<p><code>1. Reg Exp: Find:\s{3,}  Replace:,</code> <code>\s{3,} searches for every space in between the words, and I just replaced it with a comma</code></p>
 </div>
 <div id="question-2" class="section level1">
 <h1>Question 2</h1>
-<p>Write a single regular expression that will make the change. <code>2. Reg Exp: Find: (\w+),( \s*)(\w+),(\s*)(.*)  Replace:  \3 \1 \(\5\)</code></p>
+<p>Write a single regular expression that will make the change. <code>2. Reg Exp: Find: (\w+),( \s*)(\w+),(\s*)(.*)  Replace:  \3 \1 \(\5\)</code> <code>Separated each portion by captures, and then just replacing the commas with spaces, and including parentheses for the location component.</code></p>
 </div>
 <div id="question-3" class="section level1">
 <h1>Question 3</h1>
 <p>A Second True Regex Story. A few weeks ago, at Radio Bean’s Sunday afternoon old-time music session, one of the mandolin players gave me a DVD with over 1000 historic recordings of old-time fiddle tunes.</p>
-<p><code>3. Reg Exp: Find: \.\w{2}\d\s  Replace: .mp3\n</code></p>
+<p><code>3. Reg Exp: Find: \.\w{2}\d\s  Replace: .mp3\n</code> <code>Since each &quot;line&quot; ends with .mp3 I just searched for that using \.\w{2}\d\s and then replaced it with .mp3\n to create a new line every time it popped up.</code></p>
 </div>
 <div id="question-4" class="section level1">
 <h1>Question 4</h1>
-<p>Now write a regular expression to grab the four digit number and put it at the end of the title: <code>4. Reg Exp: Find:(\d+)\s.*\.\w{2}\d Replace: \2_\1.mp3</code></p>
+<p>Now write a regular expression to grab the four digit number and put it at the end of the title: <code>4. Reg Exp: Find:(\d+)\s.*\.\w{2}\d Replace: \2_\1.mp3</code> <code>At this point I searched for the full line and captured the four digit number in the beginning, so that during the replace I could just move it over to the end of the title.</code></p>
 </div>
 <div id="question-5" class="section level1">
 <h1>Question 5</h1>
 <p>Here is a data frame with genus, species, and two numeric variables.</p>
-<p><code>5. Reg Exp: Find: (\w)\w+,(\w+),\d{1,}\.\d,(\d+) Replace: \1_\2,\3</code></p>
-</div>
-<div id="question-6" class="section level1">
-<h1>Question 6</h1>
-<p>Beginning with the original data set, rearrange it to abbreviate the species name like this:</p>
-<p><code>6. Reg Exp: Find: (\w)\w+,(\w{4})\w+,\d{1,}\.\d,(\d+) Replace: \1_\2,\3</code></p>
-</div>
-<div id="question-7" class="section level1">
-<h1>Question 7</h1>
-<p>Beginning with the original data set, rearrange it so that the species and genus names are fused with the first 3 letters of each, followed by the two columns of numerical data in reversed order:</p>
-<p><code>7. Reg Exp: Find: (\w{3})\w+,(\w{3})\w+,(\d{1,}\.\d),(\d+) Replace: \1\2, \4, \3</code></p>
+<p><code>5. Reg Exp: Find: (\w)\w+,(\w+),\d{1,}\.\d,(\d+) Replace: \1_\2,\3</code> <code>I captured the first letter of the genus, full species component, and the 2nd numeric variable from each line, and then just reordered it.</code> # Question 6 Beginning with the original data set, rearrange it to abbreviate the species name like this:</p>
+<p><code>6. Reg Exp: Find: (\w)\w+,(\w{4})\w+,\d{1,}\.\d,(\d+) Replace: \1_\2,\3</code> <code>I captured the first letter of genus, the first 4 letters of the species(\w{4}), and the 2nd numeric variable, and used the same replace statement as before.</code> # Question 7 Beginning with the original data set, rearrange it so that the species and genus names are fused with the first 3 letters of each, followed by the two columns of numerical data in reversed order:</p>
+<p><code>7. Reg Exp: Find: (\w{3})\w+,(\w{3})\w+,(\d{1,}\.\d),(\d+) Replace: \1\2, \4, \3</code> <code>I captured the first three letters of both genus and species, along with the 2 numeric variables. Then I attached the first two captures, and then reversed the two numeric variable order.</code></p>
 </div>
 
 

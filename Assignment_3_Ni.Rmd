@@ -8,33 +8,37 @@ output:
 
 The primary reason for using Excel to set up data frames is that people like to have the columns aligned. However, if there are not too many columns, it may be faster to do the job in a plain text editor first and align the columns with tabs. In your text editor, type in (or copy and paste from here) the following lines of text:
 
-```1. Reg Exp: Find:\s{3,}  Replace:,```
+```1. Reg Exp: Find:\s{3,}  Replace:,``` 
+```\s{3,} searches for every space in between the words, and I just replaced it with a comma```
 
 # Question 2
 Write a single regular expression that will make the change.
 ```2. Reg Exp: Find: (\w+),( \s*)(\w+),(\s*)(.*)  Replace:  \3 \1 \(\5\)```
+```Separated each portion by captures, and then just replacing the commas with spaces, and including parentheses for the location component.  ```
 
 # Question 3 
 A Second True Regex Story. A few weeks ago, at Radio Bean’s Sunday afternoon old-time music session, one of the mandolin players gave me a DVD with over 1000 historic recordings of old-time fiddle tunes.
 
 ```3. Reg Exp: Find: \.\w{2}\d\s  Replace: .mp3\n```
+```Since each "line" ends with .mp3 I just searched for that using \.\w{2}\d\s and then replaced it with .mp3\n to create a new line every time it popped up.```
 
 # Question 4
 Now write a regular expression to grab the four digit number and put it at the end of the title:
 ```4. Reg Exp: Find:(\d+)\s.*\.\w{2}\d Replace: \2_\1.mp3```
+```At this point I searched for the full line and captured the four digit number in the beginning, so that during the replace I could just move it over to the end of the title. ```
 
 # Question 5
 Here is a data frame with genus, species, and two numeric variables.
 
 ```5. Reg Exp: Find: (\w)\w+,(\w+),\d{1,}\.\d,(\d+) Replace: \1_\2,\3```
-
+```I captured the first letter of the genus, full species component, and the 2nd numeric variable from each line, and then just reordered it.```
 # Question 6
 Beginning with the original data set, rearrange it to abbreviate the species name like this:
 
 ```6. Reg Exp: Find: (\w)\w+,(\w{4})\w+,\d{1,}\.\d,(\d+) Replace: \1_\2,\3```
-
+```I captured the first letter of genus, the first 4 letters of the species(\w{4}), and the 2nd numeric variable, and used the same replace statement as before. ```
 # Question 7
 Beginning with the original data set, rearrange it so that the species and genus names are fused with the first 3 letters of each, followed by the two columns of numerical data in reversed order:
 
 ```7. Reg Exp: Find: (\w{3})\w+,(\w{3})\w+,(\d{1,}\.\d),(\d+) Replace: \1\2, \4, \3```
-
+```I captured the first three letters of both genus and species, along with the 2 numeric variables. Then I attached the first two captures, and then reversed the two numeric variable order.```

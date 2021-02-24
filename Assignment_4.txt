@@ -48,7 +48,9 @@ This is my website (https://georgeni2442.github.io/NiBio381/)
 
 
 
-![Axlotl](C:\Users\georg\OneDrive\Documents\CompBIO\Axolotl.jpg)
+![Axlotl](Axolotl.jpg)
+
+
 
 
 
@@ -80,7 +82,9 @@ Text Text Text `library(ggplot2)`
 
 
 
-Original Flowchart: ![Flowchart](C:\Users\georg\OneDrive\Documents\CompBIO\IMG_6631.jpg)
+Original Flowchart: ![Flowchart](IMG_6631.jpg)
+
+
 
 
 

@@ -103,7 +103,7 @@ Burlington, VT 05401 USA \\
 \frametitle{Axolotl}
 % Uncomment the code on this slide to include your own image from the same directory as the template  file.
 % \begin{figure}
-   \includegraphics[width=1.0\linewidth]{Axlotl.jpg}
+   \includegraphics[width=1.0\linewidth]{Axolotl.jpg}
 % use this format for absolute sizing
 %\includegraphics[width=3cm, height=4cm]{filename.jpg}
 % \end{figure}

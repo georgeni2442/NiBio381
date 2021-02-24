@@ -48,7 +48,9 @@ This is my website (https://georgeni2442.github.io/NiBio381/)
 
 
 
-![Axlotl](C:\Users\georg\OneDrive\Pictures\Axlotl.jpg)
+![Axlotl](C:\Users\georg\OneDrive\Documents\CompBIO\Axolotl.jpg)
+
+
 
 
 

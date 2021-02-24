@@ -1,0 +1,143 @@
+
+
+Hello, this is a new typora document that I'll be using as a test.
+
+*italics* single asterisk
+
+**bold** double asterisk
+
+# Header 1
+
+## Header 2 
+
+### Header 3 
+
+#### Header 4
+
+##### Header 5
+
+###### Header 6
+
+
+
+Unordered List: 
+
+* Item 1
+* Item 2
+* Item 3
+* Etc.... 
+
+
+
+Ordered List: 
+
+1. Item 1
+2. Item 2
+3. Item 3
+4. Etc....
+
+
+
+Paragraph contents. Paragraph contents. Paragraph contents. Paragraph contents. Paragraph contents. Paragraph contents. Paragraph contents. Paragraph contents. 
+
+Second Paragraph Contents. Second Paragraph Contents. Second Paragraph Contents. Second Paragraph Contents. Second Paragraph Contents. Second Paragraph Contents. Second Paragraph Contents. 
+
+
+
+This is my website (https://georgeni2442.github.io/NiBio381/)
+
+
+
+![Axlotl](C:\Users\georg\OneDrive\Pictures\Axlotl.jpg)
+
+
+
+
+
+> Here is an example of block quoting. 
+
+
+
+``` 
+Plain text boxes
+```
+
+
+
+```{r}
+library(ggplot2) 
+library(dplyr)
+x<-3
+y<-c(4,5,6)
+test<-read.csv("test.csv")
+```
+
+
+
+Text Text Text `library(ggplot2)` 
+
+
+
+Original Flowchart: ![Flowchart](C:\Users\georg\Downloads\IMG_6631.jpg)
+
+
+
+
+
+```mermaid
+graph LR
+A{Colder Winter Temp}
+A---> B(EAB Parasitoid Decline)
+A-.-> C
+B---> C(EAB Pop Increase)
+C---> D(Ash Tree Health Decline)
+E(Forest Composition)-->C
+
+
+
+
+
+```
+
+Inline Equation: $ e=mc^2$
+
+Centered Equation: 
+$$
+e=mc^2
+$$
+
+
+Horizontal Line:
+
+***
+
+
+
+Table:
+
+| First Header | Second Header | Third Header |
+| ------------ | ------------- | ------------ |
+|              |               |              |
+
+
+
+
+
+
+
+==Highlighting==
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

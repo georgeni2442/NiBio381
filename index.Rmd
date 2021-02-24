@@ -16,4 +16,4 @@ output:
 
 ### Week 3: [Homework 3](Assignment_3_Ni.html)
 
-### Week 4: 
+### Week 4: [Homework 4-Typora](Assignment_4.html), [Homework 4-Letterhead](Letter_Test.pdf), [Homework 4-Beamer](01_Beamer_TEMPLATE.pdf)

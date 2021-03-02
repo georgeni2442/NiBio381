@@ -40,7 +40,7 @@
 % -----------------------------------------
 
 % TITLE PAGE DATA--------------------------
-\title[Short title]{Full Title of the Talk} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[Short title]{Beamer Test Slides} % The short title appears at the bottom of every slide, the full title is only on the title page
 
 \author{George Ni} % Your name
 
@@ -64,39 +64,6 @@ Burlington, VT 05401 USA \\
 \titlepage % Print the title page as the first slide
 \end{frame}
 
-% OPTIONAL TABLE OF CONTENTS SLIDE---------
-
-\begin{frame}
-\frametitle{Overview} % Table of contents slide, comment this block out to remove it
-\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
-\end{frame}
-
-% OPTIONAL SECTION HEADERS-----------------
-\section{First Section} % Sections can be created in order to organize your presentation into discrete blocks; all sections and subsections are automatically printed in the table of contents as an overview of the talk
-
-\subsection{Subsection Example} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
-
-% SLIDE (BULLET POINTS)--------------------
-\begin{frame}
-\frametitle{Bullet Points}
-\begin{itemize}
-\item first item
-\item second item
-\item third item
-\item et cetera
-\item last item
-\end{itemize}
-\end{frame}
-
-% SLIDE (SEQUENTIAL BULLET POINTS)---------
-\begin{frame}
-\frametitle{Sequential Bullet Points}
-\begin{itemize}
-\item<1-> Text visible on first slide
-\item<2-> Text visible on second slide
-\item<3-> Text visible on third slide
-\end{itemize}
-\end{frame}
 
 % SLIDE (FIGURE)-----------------------------
 \begin{frame}
@@ -128,49 +95,12 @@ Burlington, VT 05401 USA \\
 
 % SLIDE (BLOCKS OF HIGHLIGHTED TEXT)-------
 \begin{frame}
-\frametitle{Blocks of Highlighted Text}
-\begin{block}{Block 1}
+\frametitle{Some Background on EAB}
+\begin{block}{Invasion to NA}
 The emerald ash borer is known for it's quick dispersal and significant impact on the health of Ash Trees all throughout North America. Native to East Asia, this insect's burrowing capabilities make chemical solutions inviable, and the USDA is now researching biocontrol methods in order to curtail the population.
 \end{block}
-
-
-
-\column{.45\textwidth} % Left column and width
-\textbf{Heading}
-\begin{enumerate}
-\item Statement
-\item Explanation
-\item Example
-\end{enumerate}
-
-\column{.5\textwidth} % Right column and width
-![Axolotl](Axlotl.jpg)
-
-\end{columns}
 \end{frame}
 
-
-% SLIDE (THEOREM)----------------------------
-\begin{frame}
-\frametitle{Theorem}
-\begin{theorem}[Mass--energy equivalence]
-$E = mc^2$
-\end{theorem}
-\end{frame}
-
-% SLIDE (VERBATIM)---------------------------
-\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-\frametitle{Verbatim}
-\begin{example}[Theorem Slide Code]
-\begin{verbatim}
-\begin{frame}
-\frametitle{Theorem}
-\begin{theorem}[Mass--energy equivalence]
-$E = mc^2$
-\end{theorem}
-\end{frame}\end{verbatim}
-\end{example}
-\end{frame}
 
 % SLIDE (FINAL SLIDE)------------------------
 \begin{frame}

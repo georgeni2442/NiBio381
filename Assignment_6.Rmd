@@ -1,8 +1,15 @@
+---
+title: "Assignment_6"
+output: html_document
+---
+
+```{r setup, include=FALSE}
 library(dplyr)
 library(naniar)
-
+```
+## Question 1
+```{r}
 n_dims<-sample(3:10, 1)
-
 consec<-1:n_dims^2
 set.seed(1)
 samp<-sample(consec)
@@ -25,7 +32,13 @@ eig<-eigen(mat)
 typeof(eig$values)
 typeof(eig$vectors)
 
-#2 
+
+```
+
+
+## Question 2
+```{r}
+
 rand<-runif(16)
 my_matrix<-matrix(rand, nrow=4, ncol=4)
 rand_vec<-runif(100)
@@ -43,7 +56,11 @@ newlist<-c(my_matrix[2,2], my_logical[2], my_letters[2])
 typeof(newlist[1])
 typeof(newlist[3])
 
-#3 
+```
+
+
+## Question 3 
+```{r}
 df<-data.frame(my_unis=runif(26,min = 0, max=10), my_letters=sample(LETTERS))
 df
 df<-replace(df,df[sample(1:26,4),2] , value=NA)
@@ -56,3 +73,5 @@ df_sort<-arrange(df, my_letters)
 df_sort
 #calculate column mean for first variable 
 df_mean<-mean(df$my_unis, na.rm=TRUE)
+df_mean
+```

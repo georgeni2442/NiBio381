@@ -20,3 +20,7 @@ output:
 
 ### Week 5: [Homework 5](Assignment_5.html)
 
+### Week 6: [Homework 6](Assignment_6.html)
+
+### Week 7: [Homework 7](Assignment_7.html)
+

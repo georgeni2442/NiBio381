@@ -200,38 +200,53 @@ set.seed(1)
 samp&lt;-sample(consec)
 mat&lt;-matrix(samp, nrow=sqrt(length(consec)),ncol=sqrt(length(consec)))
 print(mat)</code></pre>
-<pre><code>##      [,1] [,2] [,3]
-## [1,]    9    1    3
-## [2,]    4    2    8
-## [3,]    7    6    5</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
+## [1,]   57   18    7   58   36   59   22    3
+## [2,]    4   51    9   60   62   31   64   16
+## [3,]   39   33   15   55   40    8    2   56
+## [4,]    1   21   52   50   35   38   13   63
+## [5,]   34   53   37   54   28   24   30   45
+## [6,]   23   42   41   20   29   48   17   19
+## [7,]   43   46   25    6   26   32   11   47
+## [8,]   14   10   44   49   12   27   61    5</code></pre>
 <pre class="r"><code>t(mat)</code></pre>
-<pre><code>##      [,1] [,2] [,3]
-## [1,]    9    4    7
-## [2,]    1    2    6
-## [3,]    3    8    5</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
+## [1,]   57    4   39    1   34   23   43   14
+## [2,]   18   51   33   21   53   42   46   10
+## [3,]    7    9   15   52   37   41   25   44
+## [4,]   58   60   55   50   54   20    6   49
+## [5,]   36   62   40   35   28   29   26   12
+## [6,]   59   31    8   38   24   48   32   27
+## [7,]   22   64    2   13   30   17   11   61
+## [8,]    3   16   56   63   45   19   47    5</code></pre>
 <pre class="r"><code>mat</code></pre>
-<pre><code>##      [,1] [,2] [,3]
-## [1,]    9    1    3
-## [2,]    4    2    8
-## [3,]    7    6    5</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
+## [1,]   57   18    7   58   36   59   22    3
+## [2,]    4   51    9   60   62   31   64   16
+## [3,]   39   33   15   55   40    8    2   56
+## [4,]    1   21   52   50   35   38   13   63
+## [5,]   34   53   37   54   28   24   30   45
+## [6,]   23   42   41   20   29   48   17   19
+## [7,]   43   46   25    6   26   32   11   47
+## [8,]   14   10   44   49   12   27   61    5</code></pre>
 <pre class="r"><code>last&lt;-mat[length(mat)]
 
 sum&lt;-sum(c(mat[1,],mat[sqrt(length(mat)),]))
 mean&lt;-mean(c(mat[1,],mat[sqrt(length(mat)),]))
 
 length(mat)</code></pre>
-<pre><code>## [1] 9</code></pre>
+<pre><code>## [1] 64</code></pre>
 <pre class="r"><code>sqrt(length(mat))</code></pre>
-<pre><code>## [1] 3</code></pre>
+<pre><code>## [1] 8</code></pre>
 <pre class="r"><code>eig&lt;-eigen(mat)
 #What kind of numbers are $values and $vectors
 #values is a vector containing the p eigenvalues of x in decreasing order 
 #vector is a vector of eigenvectors, or right eigenvector
 
 typeof(eig$values)</code></pre>
-<pre><code>## [1] &quot;double&quot;</code></pre>
+<pre><code>## [1] &quot;complex&quot;</code></pre>
 <pre class="r"><code>typeof(eig$vectors)</code></pre>
-<pre><code>## [1] &quot;double&quot;</code></pre>
+<pre><code>## [1] &quot;complex&quot;</code></pre>
 </div>
 <div id="question-2" class="section level2">
 <h2>Question 2</h2>
@@ -239,48 +254,48 @@ typeof(eig$values)</code></pre>
 my_matrix&lt;-matrix(rand, nrow=4, ncol=4)
 rand_vec&lt;-runif(100)
 rand_vec</code></pre>
-<pre><code>##   [1] 0.38611409 0.01339033 0.38238796 0.86969085 0.34034900 0.48208012
-##   [7] 0.59956583 0.49354131 0.18621760 0.82737332 0.66846674 0.79423986
-##  [13] 0.10794363 0.72371095 0.41127443 0.82094629 0.64706019 0.78293276
-##  [19] 0.55303631 0.52971958 0.78935623 0.02333120 0.47723007 0.73231374
-##  [25] 0.69273156 0.47761962 0.86120948 0.43809711 0.24479728 0.07067905
-##  [31] 0.09946616 0.31627171 0.51863426 0.66200508 0.40683019 0.91287592
-##  [37] 0.29360337 0.45906573 0.33239467 0.65087047 0.25801678 0.47854525
-##  [43] 0.76631067 0.08424691 0.87532133 0.33907294 0.83944035 0.34668349
-##  [49] 0.33377493 0.47635125 0.89219834 0.86433947 0.38998954 0.77732070
-##  [55] 0.96061800 0.43465948 0.71251468 0.39999437 0.32535215 0.75708715
-##  [61] 0.20269226 0.71112122 0.12169192 0.24548851 0.14330438 0.23962942
-##  [67] 0.05893438 0.64228826 0.87626921 0.77891468 0.79730883 0.45527445
-##  [73] 0.41008408 0.81087024 0.60493329 0.65472393 0.35319727 0.27026015
-##  [79] 0.99268406 0.63349326 0.21320814 0.12937235 0.47811803 0.92407447
-##  [85] 0.59876097 0.97617069 0.73179251 0.35672691 0.43147369 0.14821156
-##  [91] 0.01307758 0.71556607 0.10318424 0.44628435 0.64010105 0.99183862
-##  [97] 0.49559358 0.48434952 0.17344233 0.75482094</code></pre>
+<pre><code>##   [1] 0.35319727 0.27026015 0.99268406 0.63349326 0.21320814 0.12937235
+##   [7] 0.47811803 0.92407447 0.59876097 0.97617069 0.73179251 0.35672691
+##  [13] 0.43147369 0.14821156 0.01307758 0.71556607 0.10318424 0.44628435
+##  [19] 0.64010105 0.99183862 0.49559358 0.48434952 0.17344233 0.75482094
+##  [25] 0.45389549 0.51116978 0.20754511 0.22865814 0.59571200 0.57487220
+##  [31] 0.07706438 0.03554058 0.64279549 0.92861520 0.59809242 0.56090075
+##  [37] 0.52602772 0.98509522 0.50764182 0.68278808 0.60154122 0.23886868
+##  [43] 0.25816593 0.72930962 0.45257083 0.17512677 0.74669827 0.10498764
+##  [49] 0.86454495 0.61464497 0.55715954 0.32877732 0.45313145 0.50044097
+##  [55] 0.18086636 0.52963060 0.07527575 0.27775593 0.21269952 0.28479048
+##  [61] 0.89509410 0.44623532 0.77998489 0.88061903 0.41312421 0.06380848
+##  [67] 0.33548749 0.72372595 0.33761533 0.63041412 0.84061455 0.85613166
+##  [73] 0.39135928 0.38049389 0.89544543 0.64431576 0.74107865 0.60530345
+##  [79] 0.90308161 0.29373016 0.19126011 0.88645094 0.50333949 0.87705754
+##  [85] 0.18919362 0.75810305 0.72449889 0.94372482 0.54764659 0.71174387
+##  [91] 0.38890510 0.10087313 0.92730209 0.28323250 0.59057316 0.11036060
+##  [97] 0.84050703 0.31796368 0.78285134 0.26750821</code></pre>
 <pre class="r"><code>my_logical&lt;-rand_vec&gt;0.5
 my_letters&lt;-sample(letters)
 my_list&lt;-list(my_matrix, my_logical,my_letters)
 my_list</code></pre>
 <pre><code>## [[1]]
-##            [,1]      [,2]      [,3]      [,4]
-## [1,] 0.06178627 0.3841037 0.9919061 0.2121425
-## [2,] 0.20597457 0.7698414 0.3800352 0.6516738
-## [3,] 0.17655675 0.4976992 0.7774452 0.1255551
-## [4,] 0.68702285 0.7176185 0.9347052 0.2672207
+##           [,1]       [,2]      [,3]      [,4]
+## [1,] 0.2026923 0.14330438 0.8762692 0.4100841
+## [2,] 0.7111212 0.23962942 0.7789147 0.8108702
+## [3,] 0.1216919 0.05893438 0.7973088 0.6049333
+## [4,] 0.2454885 0.64228826 0.4552745 0.6547239
 ## 
 ## [[2]]
-##   [1] FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE
-##  [13] FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE
-##  [25]  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE
-##  [37] FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE
-##  [49] FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE
-##  [61] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE
-##  [73] FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE
-##  [85]  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE
-##  [97] FALSE FALSE FALSE  TRUE
+##   [1] FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE
+##  [13] FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE
+##  [25] FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
+##  [37]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE
+##  [49]  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE
+##  [61]  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE  TRUE
+##  [73] FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE
+##  [85] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE
+##  [97]  TRUE FALSE  TRUE FALSE
 ## 
 ## [[3]]
-##  [1] &quot;s&quot; &quot;b&quot; &quot;j&quot; &quot;a&quot; &quot;k&quot; &quot;o&quot; &quot;x&quot; &quot;p&quot; &quot;l&quot; &quot;g&quot; &quot;h&quot; &quot;e&quot; &quot;r&quot; &quot;f&quot; &quot;z&quot; &quot;w&quot; &quot;c&quot; &quot;t&quot; &quot;i&quot;
-## [20] &quot;v&quot; &quot;u&quot; &quot;d&quot; &quot;m&quot; &quot;q&quot; &quot;n&quot; &quot;y&quot;</code></pre>
+##  [1] &quot;z&quot; &quot;m&quot; &quot;b&quot; &quot;x&quot; &quot;s&quot; &quot;q&quot; &quot;w&quot; &quot;k&quot; &quot;c&quot; &quot;r&quot; &quot;n&quot; &quot;u&quot; &quot;y&quot; &quot;v&quot; &quot;h&quot; &quot;i&quot; &quot;t&quot; &quot;l&quot; &quot;j&quot;
+## [20] &quot;g&quot; &quot;d&quot; &quot;e&quot; &quot;a&quot; &quot;f&quot; &quot;o&quot; &quot;p&quot;</code></pre>
 <pre class="r"><code>typeof(my_list)</code></pre>
 <pre><code>## [1] &quot;list&quot;</code></pre>
 <pre class="r"><code>new_list&lt;-list(my_matrix[2,2],my_logical[2], my_letters[2])
@@ -296,126 +311,69 @@ typeof(newlist[1])</code></pre>
 <div id="question-3" class="section level2">
 <h2>Question 3</h2>
 <pre class="r"><code>df&lt;-data.frame(my_unis=runif(26,min = 0, max=10), my_letters=sample(LETTERS))
-df</code></pre>
-<pre><code>##      my_unis my_letters
-## 1  7.7998489          S
-## 2  8.8061903          U
-## 3  4.1312421          P
-## 4  0.6380848          Z
-## 5  3.3548749          D
-## 6  7.2372595          B
-## 7  3.3761533          X
-## 8  6.3041412          A
-## 9  8.4061455          L
-## 10 8.5613166          G
-## 11 3.9135928          I
-## 12 3.8049389          R
-## 13 8.9544543          J
-## 14 6.4431576          M
-## 15 7.4107865          N
-## 16 6.0530345          Y
-## 17 9.0308161          K
-## 18 2.9373016          C
-## 19 1.9126011          W
-## 20 8.8645094          O
-## 21 5.0333949          T
-## 22 8.7705754          F
-## 23 1.8919362          E
-## 24 7.5810305          Q
-## 25 7.2449889          H
-## 26 9.4372482          V</code></pre>
-<pre class="r"><code>df&lt;-replace(df,df[sample(1:26,4),2] , value=NA)
-df</code></pre>
-<pre><code>##      my_unis my_letters  I  Y  A  L
-## 1  7.7998489          S NA NA NA NA
-## 2  8.8061903          U NA NA NA NA
-## 3  4.1312421          P NA NA NA NA
-## 4  0.6380848          Z NA NA NA NA
-## 5  3.3548749          D NA NA NA NA
-## 6  7.2372595          B NA NA NA NA
-## 7  3.3761533          X NA NA NA NA
-## 8  6.3041412          A NA NA NA NA
-## 9  8.4061455          L NA NA NA NA
-## 10 8.5613166          G NA NA NA NA
-## 11 3.9135928          I NA NA NA NA
-## 12 3.8049389          R NA NA NA NA
-## 13 8.9544543          J NA NA NA NA
-## 14 6.4431576          M NA NA NA NA
-## 15 7.4107865          N NA NA NA NA
-## 16 6.0530345          Y NA NA NA NA
-## 17 9.0308161          K NA NA NA NA
-## 18 2.9373016          C NA NA NA NA
-## 19 1.9126011          W NA NA NA NA
-## 20 8.8645094          O NA NA NA NA
-## 21 5.0333949          T NA NA NA NA
-## 22 8.7705754          F NA NA NA NA
-## 23 1.8919362          E NA NA NA NA
-## 24 7.5810305          Q NA NA NA NA
-## 25 7.2449889          H NA NA NA NA
-## 26 9.4372482          V NA NA NA NA</code></pre>
-<pre class="r"><code>df[sample(1:26, 4),1]&lt;-NA
-df</code></pre>
-<pre><code>##      my_unis my_letters  I  Y  A  L
-## 1  7.7998489          S NA NA NA NA
-## 2  8.8061903          U NA NA NA NA
-## 3  4.1312421          P NA NA NA NA
-## 4  0.6380848          Z NA NA NA NA
-## 5  3.3548749          D NA NA NA NA
-## 6  7.2372595          B NA NA NA NA
-## 7  3.3761533          X NA NA NA NA
-## 8  6.3041412          A NA NA NA NA
-## 9  8.4061455          L NA NA NA NA
-## 10        NA          G NA NA NA NA
-## 11 3.9135928          I NA NA NA NA
-## 12 3.8049389          R NA NA NA NA
-## 13 8.9544543          J NA NA NA NA
-## 14 6.4431576          M NA NA NA NA
-## 15        NA          N NA NA NA NA
-## 16 6.0530345          Y NA NA NA NA
-## 17 9.0308161          K NA NA NA NA
-## 18        NA          C NA NA NA NA
-## 19 1.9126011          W NA NA NA NA
-## 20 8.8645094          O NA NA NA NA
-## 21 5.0333949          T NA NA NA NA
-## 22 8.7705754          F NA NA NA NA
-## 23 1.8919362          E NA NA NA NA
-## 24        NA          Q NA NA NA NA
-## 25 7.2449889          H NA NA NA NA
-## 26 9.4372482          V NA NA NA NA</code></pre>
+df[sample(1:26, 4),1]&lt;-NA
+print(df)</code></pre>
+<pre><code>##     my_unis my_letters
+## 1  6.314202          H
+## 2  3.900789          D
+## 3  6.896278          Q
+## 4        NA          I
+## 5  5.549006          U
+## 6  4.296244          A
+## 7        NA          T
+## 8  3.064433          J
+## 9  5.783539          N
+## 10 9.103703          S
+## 11 1.426041          W
+## 12 4.150476          Z
+## 13 2.109258          E
+## 14 4.287504          R
+## 15 1.326900          F
+## 16 4.600964          L
+## 17 9.429571          B
+## 18 7.619739          X
+## 19 9.329098          O
+## 20       NA          K
+## 21 6.035881          G
+## 22 4.849897          Y
+## 23 1.088063          P
+## 24       NA          V
+## 25 4.985145          C
+## 26 3.728667          M</code></pre>
 <pre class="r"><code>#sort in alphabetical
 df_sort&lt;-arrange(df, my_letters)
 df_sort</code></pre>
-<pre><code>##      my_unis my_letters  I  Y  A  L
-## 1  6.3041412          A NA NA NA NA
-## 2  7.2372595          B NA NA NA NA
-## 3         NA          C NA NA NA NA
-## 4  3.3548749          D NA NA NA NA
-## 5  1.8919362          E NA NA NA NA
-## 6  8.7705754          F NA NA NA NA
-## 7         NA          G NA NA NA NA
-## 8  7.2449889          H NA NA NA NA
-## 9  3.9135928          I NA NA NA NA
-## 10 8.9544543          J NA NA NA NA
-## 11 9.0308161          K NA NA NA NA
-## 12 8.4061455          L NA NA NA NA
-## 13 6.4431576          M NA NA NA NA
-## 14        NA          N NA NA NA NA
-## 15 8.8645094          O NA NA NA NA
-## 16 4.1312421          P NA NA NA NA
-## 17        NA          Q NA NA NA NA
-## 18 3.8049389          R NA NA NA NA
-## 19 7.7998489          S NA NA NA NA
-## 20 5.0333949          T NA NA NA NA
-## 21 8.8061903          U NA NA NA NA
-## 22 9.4372482          V NA NA NA NA
-## 23 1.9126011          W NA NA NA NA
-## 24 3.3761533          X NA NA NA NA
-## 25 6.0530345          Y NA NA NA NA
-## 26 0.6380848          Z NA NA NA NA</code></pre>
+<pre><code>##     my_unis my_letters
+## 1  4.296244          A
+## 2  9.429571          B
+## 3  4.985145          C
+## 4  3.900789          D
+## 5  2.109258          E
+## 6  1.326900          F
+## 7  6.035881          G
+## 8  6.314202          H
+## 9        NA          I
+## 10 3.064433          J
+## 11       NA          K
+## 12 4.600964          L
+## 13 3.728667          M
+## 14 5.783539          N
+## 15 9.329098          O
+## 16 1.088063          P
+## 17 6.896278          Q
+## 18 4.287504          R
+## 19 9.103703          S
+## 20       NA          T
+## 21 5.549006          U
+## 22       NA          V
+## 23 1.426041          W
+## 24 7.619739          X
+## 25 4.849897          Y
+## 26 4.150476          Z</code></pre>
 <pre class="r"><code>#calculate column mean for first variable 
 df_mean&lt;-mean(df$my_unis, na.rm=TRUE)
 df_mean</code></pre>
-<pre><code>## [1] 5.973145</code></pre>
+<pre><code>## [1] 4.994336</code></pre>
 </div>
 
 

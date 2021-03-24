@@ -62,11 +62,8 @@ typeof(newlist[3])
 ## Question 3 
 ```{r}
 df<-data.frame(my_unis=runif(26,min = 0, max=10), my_letters=sample(LETTERS))
-df
-df<-replace(df,df[sample(1:26,4),2] , value=NA)
-df
 df[sample(1:26, 4),1]<-NA
-df
+print(df)
 
 #sort in alphabetical
 df_sort<-arrange(df, my_letters)

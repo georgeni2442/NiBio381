@@ -1,0 +1,49 @@
+---
+title: "Assignment_8"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(tidyr)
+```
+
+# Question 1. 
+I'm taking a look at cold tolerance of emerald ash borer parasitoids, S. Galinae and T. Planipennisi. This mock experimental data will be of adjusted Super Cooling Points (SCP) as well as sizes of larval parasitoids. I know that SCP's will likely be centered around -26 Degrees Celsius from previous studies on this, with an expectation for increasing SCP's with increased body size. 
+
+```{r}
+scp<-rnorm(100, mean=-26,sd = 5)
+size<-seq(1,20, length.out=100)
+df<-data.frame(size=size, scp=scp)
+df$scp[which(df$size<4)]<-rnorm(n = nrow(df[df$size<4,]), mean=-15, sd=5)
+df$scp[which(df$size>15)]<-rnorm( nrow(df[df$size>15,]),mean=-30, sd=5)
+```
+
+```{r}
+hist(df$scp,breaks = 5)
+```
+
+# Question 4. 
+Since I'm looking at two continuous variables (Body sizes and Temperatures) I'll use regression analysis to analyze this dataset. 
+```{r}
+mod<-lm(scp~size,  data=df)
+plot(x=df$size,y=df$scp)+abline(mod)
+
+mod1<-summary(mod)
+mod1$r.squared
+
+```
+# Question 6. 
+I ran this data 10 more times, changing the sample size to determine the minimum effective sample size, starting with a low sample size of 10, increasing by 5's and 10's until it reliably gave significant effects. It seems like the minimum sample size needed is 40.
+```{r}
+scp<-rnorm(40, mean=-26,sd = 10)
+size<-seq(1,20, length.out=40)
+df<-data.frame(size=size, scp=scp)
+df$scp[which(df$size<4)]<-rnorm(n = nrow(df[df$size<4,]), mean=-15, sd=10)
+df$scp[which(df$size>15)]<-rnorm( nrow(df[df$size>15,]),mean=-30, sd=10)
+
+mod<-lm(scp~size,  data=df)
+mod1<-summary(mod)
+mod1
+mod1$r.squared
+```

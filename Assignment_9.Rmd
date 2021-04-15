@@ -1,0 +1,32 @@
+---
+title: "Assignment_9"
+output: html_document
+---
+
+```{r}
+
+### Mock Data-set and Regression Analysis of EAB Larval Parasitoid Cold Tolerance 
+
+# 4/14/2021
+# George Ni 
+
+
+# ----------------------------------
+#Preliminaries 
+library(dplyr)
+library(tidyr)
+set.seed(24)
+source("Functions.R")
+
+#Program Body
+
+x<-genData(1000)
+
+CalculateStuff(x)
+
+PlotResults(x)
+
+#Part 2 
+Histogram(x)
+```
+

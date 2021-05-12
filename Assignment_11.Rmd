@@ -94,13 +94,14 @@ library(dplyr)
 char2seed("Freezing March")
 
 
-setwd("~/OneDrive/Documents/CompBio/George Streamflow Assignment 428/")
-filelist<-list.files(pattern=".txt")
+setwd("~/OneDrive/Documents/CompBio/George Streamflow Assignment 428/")#Set Working Directory
+filelist<-list.files(pattern=".txt") #Pull out files you're concerned with (This time any file with .txt type)
+
 for (i in 1:length(filelist)){
   input<-filelist[i]
   output<-paste0(input)
   print(paste("Processing the file:", input))
-  data = read.delim(input, header = TRUE)   
+  data = read.delim(input, header = TRUE)   #read in file
   setwd("~/OneDrive/Documents/CompBio/done/")
   write.table(data, file=output, sep=",", col.names=TRUE, row.names=FALSE)
   setwd("~/OneDrive/Documents/CompBio/George Streamflow Assignment 428/")
@@ -125,7 +126,6 @@ r2 <- rep(NA,nFiles)
 
 statsOut <- data.frame(ID,fileName,slope,pVal,r2)
 
-fileNames[i]
 for (i in seq_along(fileNames)) {
   data <- read.delim(file=fileNames[i]) # read in next data file
   
@@ -154,5 +154,7 @@ write.table(x=statsOut,
             col.names=TRUE,
             sep=",",
             append=TRUE)
+
+print(statsOut)
 
 ```

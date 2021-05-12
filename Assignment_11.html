@@ -287,13 +287,14 @@ library(TeachingDemos)</code></pre>
 <pre class="r"><code>char2seed(&quot;Freezing March&quot;)
 
 
-setwd(&quot;~/OneDrive/Documents/CompBio/George Streamflow Assignment 428/&quot;)
-filelist&lt;-list.files(pattern=&quot;.txt&quot;)
+setwd(&quot;~/OneDrive/Documents/CompBio/George Streamflow Assignment 428/&quot;)#Set Working Directory
+filelist&lt;-list.files(pattern=&quot;.txt&quot;) #Pull out files you&#39;re concerned with (This time any file with .txt type)
+
 for (i in 1:length(filelist)){
   input&lt;-filelist[i]
   output&lt;-paste0(input)
   print(paste(&quot;Processing the file:&quot;, input))
-  data = read.delim(input, header = TRUE)   
+  data = read.delim(input, header = TRUE)   #read in file
   setwd(&quot;~/OneDrive/Documents/CompBio/done/&quot;)
   write.table(data, file=output, sep=&quot;,&quot;, col.names=TRUE, row.names=FALSE)
   setwd(&quot;~/OneDrive/Documents/CompBio/George Streamflow Assignment 428/&quot;)
@@ -324,9 +325,7 @@ r2 &lt;- rep(NA,nFiles)
 
 statsOut &lt;- data.frame(ID,fileName,slope,pVal,r2)
 
-fileNames[i]</code></pre>
-<pre><code>## [1] &quot;monthlymadriver.txt&quot;</code></pre>
-<pre class="r"><code>for (i in seq_along(fileNames)) {
+for (i in seq_along(fileNames)) {
   data &lt;- read.delim(file=fileNames[i]) # read in next data file
   
   dClean &lt;- data[complete.cases(data),] # get clean cases
@@ -356,6 +355,14 @@ write.table(x=statsOut,
             append=TRUE)</code></pre>
 <pre><code>## Warning in write.table(x = statsOut, file = fileOut, row.names = FALSE, :
 ## appending column names to file</code></pre>
+<pre class="r"><code>print(statsOut)</code></pre>
+<pre><code>##   ID                 fileName        slope      pVal          r2
+## 1  1    monthlyayersbrook.txt -0.021178376 0.4603468 0.055670989
+## 2  2    monthlyblackriver.txt -0.001120264 0.8353408 0.004531195
+## 3  3      monthlydogriver.txt -0.005540666 0.5320877 0.040200824
+## 4  4    monthlyeastorange.txt -0.071357935 0.4818728 0.050654154
+## 5  5 monthlylamoilleriver.txt -0.000759818 0.7513586 0.010497178
+## 6  6      monthlymadriver.txt -0.002198597 0.6348326 0.023429666</code></pre>
 </div>
 
 

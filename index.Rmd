@@ -28,5 +28,9 @@ output:
 
 ### Week 9: [Homework 9](Assignment_9.html)
 
-### Week 10:[Homework 10]
+### Week 10:[Homework 10](Assignment_10.html)
+
+### Week 11:[Homework 11](Assignment_11.html)
+
+### Week 12:[Homework 12](Assignment_12.html)
 

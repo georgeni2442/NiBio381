@@ -192,26 +192,24 @@ summary {
 </div>
 
 
-<pre class="r"><code>#Inputting/Cleaning Data for NA&#39;s (-999)
-jhill34&lt;-read.csv(&quot;JMHILL.3.4.csv&quot;)
-jhill2010&lt;-read.csv(&quot;JMHILL.5.2.csv&quot;)
-jhill2018&lt;-read.csv(&quot;MBW_for_KNB_2010_to_2018.csv&quot;)
+<p>Creating plots of bird species collected for the Mountain Birdwatch program by the Vermont Center for Ecostudies.</p>
+<pre class="r"><code>jhill34&lt;-read.csv(&quot;JMHILL.3.4.csv&quot;) #Read in data
+jhill2010&lt;-read.csv(&quot;JMHILL.5.2.csv&quot;) #Read in data
+jhill2018&lt;-read.csv(&quot;MBW_for_KNB_2010_to_2018.csv&quot;) #Read in data
 
-full_set&lt;-left_join(jhill2010, jhill2018)</code></pre>
+full_set&lt;-left_join(jhill2010, jhill2018) #Combine Datasets</code></pre>
 <pre><code>## Joining, by = c(&quot;ObserverID&quot;, &quot;SpeciesCode&quot;)</code></pre>
 <pre class="r"><code>jhill&lt;-jhill2018%&gt;%
-  filter(State==&quot;VT&quot;)
+  filter(State==&quot;VT&quot;) #Filter for State (VT)
 
-is.na(jhill$CountGreaterThan50meters)&lt;-which(jhill$CountGreaterThan50meters==&quot;-999&quot;)
+is.na(jhill$CountGreaterThan50meters)&lt;-which(jhill$CountGreaterThan50meters==&quot;-999&quot;) #Account for NA&#39;s (-999) and treat as 0&#39;s
 is.na(jhill$CountLessThanEqual50meters)&lt;-which(jhill$CountLessThanEqual50meters==&quot;-999&quot;)
 jhill[is.na(jhill)]&lt;-0
 is.na(jhill$CountGreaterThan50meters)&lt;-which(jhill$CountGreaterThan50meters==&quot;N/A&quot;)
 is.na(jhill$CountLessThanEqual50meters)&lt;-which(jhill$CountLessThanEqual50meters==&quot;N/A&quot;)
-jhill$CountGreaterThan50meters&lt;-as.numeric(jhill$CountGreaterThan50meters)
+jhill$CountGreaterThan50meters&lt;-as.numeric(jhill$CountGreaterThan50meters) #Originally character type, set as numeric
 jhill$CountLessThanEqual50meters&lt;-as.numeric(jhill$CountLessThanEqual50meters)</code></pre>
-<pre class="r"><code>#Treat NA&#39;s and -999 as 0&#39;s for now, but might even need to filter them from the data depending on significance. 
-
-#-----------------------------------#
+<pre class="r"><code>#-----------------------------------#
 #Data_summary: Input: Data File, variable name (usually Count), and grouping variables.
 #Output:Mean and SD
 data_summary &lt;- function(data, varname, groupnames){

@@ -1,0 +1,158 @@
+---
+title: "Assignment_11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Background
+I'm using a series of monthly streamflow records for streams/brooks in Vermont and gathering some basic statistics from them, namely linear regression (slope, PVal, R^2)
+
+```{r}
+##################################################
+# function: FileBuilder
+# create a set of random files for regression
+# input: fileN = number of files to create
+#       : fileFolder = name of folder for random files
+#       : fileSize = c(min,max) number of rows in file
+#       : fileNA = number on average of NA values per column
+# output: set of random files
+#------------------------------------------------- 
+FileBuilder <- function(fileN=10,
+                        fileFolder="RandomFiles/",
+                        fileSize=c(15,100),
+                        fileNA=3){
+  for (i in seq_len(fileN)) {
+    fileLength <- sample(fileSize[1]:fileSize[2],size=1) # get number of rows
+    varX <- runif(fileLength) # create random x
+    varY <- runif(fileLength) # create randon y
+    dF <- data.frame(varX,varY) # bind into a data frame
+    badVals <- rpois(n=1,lambda=fileNA) # determine NA number
+    dF[sample(nrow(dF),size=badVals),1] <- NA # random NA in varX
+    dF[sample(nrow(dF),size=badVals),2] <- NA # random NA in varY
+    
+    # create label for file name with padded zeroes
+    fileLabel <- paste(fileFolder,
+                       "ranFile",
+                       formatC(i,
+                               width=3,
+                               format="d",
+                               flag="0"),
+                       ".csv",sep="")
+    
+    # set up data file and incorporate time stamp and minimal metadata
+    write.table(cat("# Simulated random data file for batch processing","\n",
+                    "# timestamp: ",as.character(Sys.time()),"\n",
+                    "# NJG","\n",
+                    "# ------------------------", "\n",
+                    "\n",
+                    file=fileLabel,
+                    row.names="",
+                    col.names="",
+                    sep=""))
+    
+    # now add the data frame
+    write.table(x=dF,
+                file=fileLabel,
+                sep=",",
+                row.names=FALSE,
+                append=TRUE)
+    
+    
+  }
+}
+
+
+##################################################
+# function: regStats
+# fits linear model, extracts statistics
+# input: 2-column data frame (x and y)
+# output: slope, p-value, and r2
+#------------------------------------------------- 
+regStats <- function(d=NULL) {
+  if(is.null(d)) {
+    xVar <- runif(10)
+    yVar <- runif(10)
+    d <- data.frame(xVar,yVar)
+  }
+  x<-read.delim(d)
+  x<-x%>%
+    filter(year_nu==2015)
+  . <- lm(data=x,x[,6]~x[,7])
+  . <- summary(.)
+  statsList <- list(Slope=.$coefficients[2,1],
+                    pVal=.$coefficients[2,4],
+                    r2=.$r.squared)
+  return(statsList)
+  
+}
+
+library(TeachingDemos)
+library(dplyr)
+char2seed("Freezing March")
+
+
+setwd("~/OneDrive/Documents/CompBio/George Streamflow Assignment 428/")
+filelist<-list.files(pattern=".txt")
+for (i in 1:length(filelist)){
+  input<-filelist[i]
+  output<-paste0(input)
+  print(paste("Processing the file:", input))
+  data = read.delim(input, header = TRUE)   
+  setwd("~/OneDrive/Documents/CompBio/done/")
+  write.table(data, file=output, sep=",", col.names=TRUE, row.names=FALSE)
+  setwd("~/OneDrive/Documents/CompBio/George Streamflow Assignment 428/")
+}
+fileFolder <- "~/OneDrive/Documents/CompBio/George Streamflow Assignment 428/"
+fileNames <- list.files(path=fileFolder)
+
+
+#--------------------------------------------
+# Global variables
+nFiles <- 6
+fileOut <- "StatsSummary.csv"
+#--------------------------------------------
+
+
+# Create data frame to hold file summary statistics
+ID <- seq_along(fileNames)
+fileName <- fileNames
+slope <- rep(NA,nFiles)
+pVal <- rep(NA,nFiles)
+r2 <- rep(NA,nFiles)
+
+statsOut <- data.frame(ID,fileName,slope,pVal,r2)
+
+fileNames[i]
+for (i in seq_along(fileNames)) {
+  data <- read.delim(file=fileNames[i]) # read in next data file
+  
+  dClean <- data[complete.cases(data),] # get clean cases
+  
+  . <- regStats(fileNames[i]) # pull regression stats from clean file
+  statsOut[i,3:5] <- unlist(.) # unlist, copy into last 3 columns
+  
+}
+
+write.table(cat("# Summary stats for ",
+                "batch processing of regression models","\n",
+                "# timestamp: ",as.character(Sys.time()),"\n",
+                "# GN","\n",
+                "# ------------------------", "\n",
+                "\n",
+                file=fileOut,
+                row.names="",
+                col.names="",
+                sep=""))
+
+# now add the data frame
+write.table(x=statsOut,
+            file=fileOut,
+            row.names=FALSE,
+            col.names=TRUE,
+            sep=",",
+            append=TRUE)
+
+```

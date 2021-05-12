@@ -1,8 +1,15 @@
+---
+title: "Assignment_10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Question 1 
+```{r}
 library(ggplot2)
-
-
-#Question 1
-
 counter<-0
 
 count<-function(n, size, prob){
@@ -18,7 +25,11 @@ return(counter)
 count(1000, 3, 0.5)
 
 
-#Question 2
+```
+
+### Question 2
+
+```{r}
 count<-function(n, size, prob){
   x<-rbinom(n = n, size = size, prob = prob)
  counter<-NROW(x[which(x[1:n]==0)])
@@ -27,8 +38,10 @@ count<-function(n, size, prob){
 
 count(2000, 4, 0.5)
 
+```
 
-#Question 3 
+### Question 3
+```{r}
 matfunc<-function(row, col){
 mat<-matrix(nrow = row, ncol=col)
 for(i in 1:row){
@@ -40,8 +53,11 @@ return(mat)
 }
 
 matfunc(2, 4)
+```
 
-# Question 4
+
+### Question 4
+```{r}
 set.seed(0)
 fiola<-read.csv("fiola.csv")
 fiola$ID<-1:53
@@ -65,10 +81,6 @@ readData <- function(z=NULL) {
 }
 
 
-readData()
-
-
-
 ##################################################
 # function: getMetric
 # calculate metric for randomization test
@@ -88,7 +100,7 @@ getMetric <- function(z=myData) {
   return(slope)
 }
 
-getMetric()
+
 ##################################################
 # function: shuffleData
 # randomize data for regression analysis
@@ -105,8 +117,6 @@ shuffleData <- function(z) {
   return(z)
 }
 
-shuffleData(myData)
-getMetric(shuffleData(myData))
 ##################################################
 # function: getPVal
 # calculate p value from simulation
@@ -161,3 +171,6 @@ plotRanTest(slopes)
 linmod<-lm(data = myData, formula= yObs~xObs)
 summary(linmod)
 
+```
+
+Comparing the p-values, the pL from the simulated data is close to 1, indicating that all of the simulated p-values were greater, which does not match the results found if you were to conduct a standard linear regression model and find the p-value that way. 
